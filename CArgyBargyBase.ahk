@@ -1,4 +1,4 @@
-#include %A_LineFile%\..\ABServerMsg.ahk
+#include %A_LineFile%\..\AB_MSG.ahk
 
 class CArgyBargyBase
 {

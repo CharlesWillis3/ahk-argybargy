@@ -38,10 +38,11 @@ class CArgyBargyServer extends CArgyBargyBase
 
     PostMessage(nMsgId, wParam, lParam := "")
     {
-        rgh_rcvrs_clone := this.rghRcvrsClone()
+        rgh_rcvrs_clone := this.rghRcvrs.Clone()
         loop % rgh_rcvrs_clone.Length() {
             h_rcvr := rgh_rcvrs_clone[A_Index]
             PostMessage, nMsgId, wParam, lParam,, ahk_id %h_rcvr%
+            OutputDebug % A_ThisFunc " msgId: " AS_HEX16(nMsgId) " wParam: " AS_HEX16(wParam) " lParam: " AS_HEX16(lParam) " rcvr: " AS_HEX16(h_rcvr) " LastError: " A_LastError " ErrorLevel: " ErrorLevel
         }
     }
 
