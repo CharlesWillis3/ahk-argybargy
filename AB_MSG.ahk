@@ -2,7 +2,7 @@
    Server/Client management messages for ArgyBargy messaging
 */
 
-; AB_WELCOME(hServerHwnd)
+; AB_WELCOME(hServerHwnd) : AB_ACK
 AB_WELCOME  := 0x8000
 
 ; AB_GOODBYTE(hServerHwnd, nExitCode)
@@ -11,8 +11,12 @@ AB_GOODBYE  := 0x8001
 ; Acknowledge receipt of certain messages
 AB_ACK      := 0x8002
 
+; Sent by server to re-validate the client.
+; Client must respond with AB_ACK within the timeout, or be forcibly detached
+; AB_PING(hServerHwnd) : AB_ACK
+AB_PING := 0x8003
+
 ; These values are reserved for future use by ArgyBargy
-AB_RESERVED := 0x8003
 AB_RESERVED := 0x8004
 AB_RESERVED := 0x8005
 AB_RESERVED := 0x8006
